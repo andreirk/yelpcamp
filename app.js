@@ -1,18 +1,18 @@
-var express = require("express");
-var app = express();
-var bodyParser = require("body-parser");
+var express = require("express"), 
+    app = express(), 
+    bodyParser = require("body-parser"), 
+    mongoose = require("mongoose");
+    
 
-var campgrounds = [
-            {
-                name: 'Salmon Greek', image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR8g4PCYI2ssAVPKlJmC9q4T_k84PE7zOHqAWultSDb-BbSy5YfK-5P0I1f'
-            },
-            {
-                name: 'Grantee Hill', image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR8g4PCYI2ssAVPKlJmC9q4T_k84PE7zOHqAWultSDb-BbSy5YfK-5P0I1f'
-            },
-            {
-                name: "Mountain Gaat's Rest", image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR8g4PCYI2ssAVPKlJmC9q4T_k84PE7zOHqAWultSDb-BbSy5YfK-5P0I1f'
-            }
-        ]
+mongoose.connect('mongodb://' + process.env.IP + '/yelp_camp');
+ 
+var campgroundsSchema = new mongoose.Schema({
+    name: String,
+    image: String
+});
+
+var Campground = mongoose.model("Campground", campgroundsSchema);
+
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.set('view engine', 'ejs');
@@ -26,8 +26,14 @@ app.get('/', function(req, res){
 
 app.get('/campgrounds', function(req, res){
     
+        Campground.find({}, function(err, campgrounds){
+            if(err){
+                console.log(err);
+            } else {
+                res.render('campgrounds', {campgrounds:campgrounds});
+            }
+        })
         
-        res.render('campgrounds', {campgrounds:campgrounds});
         
        
 })
@@ -38,9 +44,21 @@ app.post('/campgrounds',  function(req,res){
    // redirect back to campgrounds page
    var name = req.body.name;
    var image = req.body.image;
-   
-   campgrounds.push({name:name, image:image });
-   res.redirect('/campgrounds');
+   var newCampground = {
+        name : name,
+        image: image
+        };
+    Campground.create(
+        newCampground,
+        function(err, campground){
+            if(err){
+                console.log(err);
+            } else {
+                 res.redirect('/campgrounds');
+            }
+        }
+    );
+  
    
 });
 
