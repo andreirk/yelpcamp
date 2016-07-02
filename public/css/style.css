@@ -1,0 +1,9 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.formdiv {
+    width: 30%;
+    margin: 30px auto;
+}
