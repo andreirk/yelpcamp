@@ -7,6 +7,7 @@ var express = require("express"),
     seedDB = require("./seeds"),
     Comment = require("./models/comment"),
     User   = require("./models/user"),
+    methodOverride = require("method-override"),
     Campground = require("./models/campground");
 
 var commentRoutes = require("./routes/comments"),
@@ -18,6 +19,8 @@ mongoose.connect('mongodb://' + process.env.IP + '/yelp_camp');
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.set('view engine', 'ejs');
+app.use(methodOverride('_method'));
+
 
 // seed the database
 //seedDB();  
