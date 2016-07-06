@@ -1,4 +1,4 @@
-<% include partials/header%>
+<% include ../partials/header%>
 
 
 <div class="container">
@@ -22,7 +22,7 @@
              <h4><%=campground.name %></h4>
         </div>
         <p>
-            <a href='/campgrounds/ <%= campground._id %>' class='btn btn-primary'>More info</a>
+            <a href='/campgrounds/<%=campground._id %>' class='btn btn-primary'>More info</a>
         </p>
        
     </div>
@@ -34,5 +34,5 @@
 </div>
 
 
-<% include partials/footer%>
+<% include ../partials/footer%>
     
