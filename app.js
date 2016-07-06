@@ -17,6 +17,11 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.set('view engine', 'ejs');
 
+app.use(function(req, res, next){
+    res.locals.currentUser = req.user;
+    next();
+})
+
 seedDB();  
 
 // PASSPORT CONFIGURATION
@@ -163,7 +168,7 @@ app.post('/login', passport.authenticate('local', {
 });
 
 app.get('/logout', function(req, res) {
-    res.logout();
+    req.logout();
     res.redirect('/campgrounds');
     
 });
