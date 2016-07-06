@@ -1,3 +1,11 @@
+.thumbnail img {
+    width: 100%;
+}
+
+.thumbnail .camption-full{
+    padding: 9px;
+}
+
 .row {
     display: flex;
     flex-wrap: wrap;
@@ -7,3 +15,4 @@
     width: 30%;
     margin: 30px auto;
 }
+

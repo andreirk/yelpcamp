@@ -6,17 +6,17 @@ var data = [
     {
          name: "Claud's Rest",
          image: "https://farm1.staticflickr.com/130/321487195_ff34bde2f5.jpg",
-         description: 'bla bla blag'
+         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, nemo, corrupti, accusantium, adipisci accusamus itaque velit aut necessitatibus libero officiis ullam a placeat ducimus vitae similique ea error sit iusto mollitia eligendi possimus cum dolor qui sapiente soluta quisquam incidunt alias laborum repellendus illum non veniam aliquid voluptatum. Officiis, laborum.'
     },
     {
          name: "Desert Mesa",
          image: "https://farm6.staticflickr.com/5181/5641024448_04fefbb64d.jpg",
-         description: 'bla bla blag'
+         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, nemo, corrupti, accusantium, adipisci accusamus itaque velit aut necessitatibus libero officiis ullam a placeat ducimus vitae similique ea error sit iusto mollitia eligendi possimus cum dolor qui sapiente soluta quisquam incidunt alias laborum repellendus illum non veniam aliquid voluptatum. Officiis, laborum.'
     },
     {
          name: "Canyon Floor",
          image: "https://farm3.staticflickr.com/2535/3823437635_c712decf64.jpg",
-         description: 'bla bla blag'
+         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, nemo, corrupti, accusantium, adipisci accusamus itaque velit aut necessitatibus libero officiis ullam a placeat ducimus vitae similique ea error sit iusto mollitia eligendi possimus cum dolor qui sapiente soluta quisquam incidunt alias laborum repellendus illum non veniam aliquid voluptatum. Officiis, laborum.'
     },
     ]
 
