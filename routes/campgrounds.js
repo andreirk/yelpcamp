@@ -5,6 +5,7 @@ var   Comment = require("../models/comment"),
       User   = require("../models/user"),
       Campground = require("../models/campground");
 // INDEX show all campgrounds
+
 router.get('/campgrounds', function(req, res){
     
         Campground.find({}, function(err, campgrounds){
@@ -17,16 +18,21 @@ router.get('/campgrounds', function(req, res){
 })
 
 
-router.post('/campgrounds',  function(req,res){
+router.post('/campgrounds', isLoggedIn, function(req,res){
    // get date from form and add to campgrounds array
    // redirect back to campgrounds page
    var name = req.body.name;
    var image = req.body.image;
    var description = req.body.description;
+   var author = {
+       id: req.user._id,
+       username: req.user.username 
+   }
    var newCampground = {
         name : name,
         image: image,
-        description: description
+        description: description,
+        author:author
         };
     Campground.create(
         newCampground,
@@ -41,7 +47,7 @@ router.post('/campgrounds',  function(req,res){
 });
 
 
-router.get('/campgrounds/new', function(req, res) {
+router.get('/campgrounds/new', isLoggedIn, function(req, res) {
    res.render('campgrounds/new');  
 });
 
