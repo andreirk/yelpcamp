@@ -16,3 +16,6 @@
     margin: 30px auto;
 }
 
+#deleteForm {
+    display: inline;
+}
